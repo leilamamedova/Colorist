@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Colorist</title>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="js/colorist.js"></script>
+  <script type="text/javascript" src="js/colorpicker.min.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" \
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type = "image/x-icon " href="image/icon.ico">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row page-title">
+      <h1 class="title">Colorist</h1>
+    </div>
+
+    <div id="input-color-wrapper">
+      <div class="input-color">
+        <input type="text" class="input" id="hex_input" spellcheck="false" maxlength="7">
+        <div class="color-picker-input" id="popoverInput" data-tooltip="Pick color" style="background: #D4EDFB;" tabindex="0"  data-toggle="popover" data-placement="top"></div>
+      </div>
+    </div>
+
+
+    <div id="colorPicker">
+      <div id="color-picker" class="cp-default">
+        <div class="picker-wrapper">
+          <div id="picker" class="picker"></div>
+          <div id="picker-indicator" class="picker-indicator"></div>
+        </div>
+        <div class="pcr-wrapper">
+          <div id="pcr" class="pcr"></div>
+          <div id="pcr-indicator" class="pcr-indicator"></div>
+        </div>
+      </div>
+    </div>
+      
+
+    <div class="panel panel-default somerow ">
+      <div class="panel_body" id="preview">
+        <div id="color-picker-preview">
+          <div id="color-picker-preview-hex">#D4EDFB</div>
+        </div>
+      </div> 
+    </div>
+    
+    <div class="panel panel-default somerow ">
+      <div class="panel_body ">
+        <h2 class="mb-4">Conversion</h2>
+        <table class="table table-striped" >
+          <tr>
+            <td style="text-align: right;">RGB</td>
+            <td><span id="rgb">212, 237, 251</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right;">HSV</td>
+            <td><span id="hsv">202, 0.16, 0.98</span></td>
+          </tr>
+          <tr>
+            <td style="text-align: right;">HSL</td>
+            <td><span id="hsl">203, 0.80, 0.90</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-default somerow ">
+      <div class="panel_body ">
+        <h2 class="mb-4" id="harmony">Color harmonies</h2>
+
+        <div class="row">
+          <div class="col-6">
+            <h4 class="palette-name">Complementary</h4>
+            <div class="subtext mb-2">
+              Complementary color schemes are made by picking two opposite colors on the color wheel. They appear vibrant near to each other.
+            </div>
+            <div style="width: 100%;">
+              <div class="palette-stripe">
+                <div style="background-color: #D4EDFB;" class="palette-color cur_color" id ="1"><span>#D4EDFB</span></div>
+                <div style="background-color: #FBE3D5;" class="palette-color compl_color" id ="2"><span>#FBE3D5</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <h4 class="palette-name">Split complementary</h4>
+            <div class="subtext mb-2">
+              Split complementary schemes are like complementary but they uses two adiacent colors of the complement.
+            </div>
+            <div id="color-picker-split">
+              <div class="palette-stripe">
+                <div style="background-color: #D4EDFB;" class="palette-color cur_color" id ="3"><span>#D4EDFB</span></div>
+                <div style="background-color: #FBD6D5;" class="palette-color" id="split_clr1"><span>#FBD6D5</span></div>
+                <div style="background-color: #FBF0D5;" class="palette-color" id="split_clr2"><span>#FBF0D5</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <h4 class="palette-name">Analogous</h4>
+            <div class="subtext mb-2">
+              Analogous color schemes are made by picking three colors that are next to each other on the color wheel. 
+            </div>
+            <div style="width: 100%;">
+              <div class="palette-stripe">
+                <div style="background-color: #D5FBF0;" class="palette-color" id="analog_clr1"><span>#D5FBF0</span></div>
+                <div style="background-color: #D4EDFB;" class="palette-color cur_color" id ="4"><span>#D4EDFB</span></div>
+                <div style="background-color: #D6D5FB;" class="palette-color" id="analog_clr2"><span>#D6D5FB</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <h4 class="palette-name">Triadic</h4>
+            <div class="subtext mb-2">
+              Triadic color schemes are created by picking three colors equally spaced on the color wheel. 
+            </div>
+            <div id="color-picker-triadic">
+              <div class="palette-stripe">
+                <div style="background-color: #D4EDFB;" class="palette-color cur_color" id ="5"><span>#D4EDFB</span></div>
+                <div style="background-color: #FBD5ED;" class="palette-color" id="triadic_clr"><span>#FBD5ED</span></div>
+                <div style="background-color: #EDFBD5;" class="palette-color triad_tetra" id ="6"><span>#EDFBD5</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <h4 class="palette-name">Tetradic</h4>
+            <div class="subtext mb-2">
+              Tetradic color schemes are made form two couples of complementary colors in a rectangular shape on the color wheel. 
+            </div>
+            <div style="width: 100%;">
+              <div class="palette-stripe">
+                <div style="background-color: #D4EDFB;" class="palette-color cur_color" id ="7"><span>#D4EDFB</span></div>
+                <div style="background-color: #E3D5FB;" class="palette-color" id="tetra_clr"><span>#E3D5FB</span></div>
+                <div style="background-color: #FBE3D5;" class="palette-color compl_color" id ="8"><span>#FBE3D5</span></div>
+                <div style="background-color: #EDFBD5;" class="palette-color triad_tetra" id ="9"><span>#EDFBD5</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <h4 class="palette-name">Square</h4>
+            <div class="subtext mb-2">
+              Square color schemes are like tetradic arranged in a square instead of rectangle. 
+            </div>
+            <div id="color-picker-square">
+              <div class="palette-stripe">
+                <div style="background-color: #D4EDFB;" class="palette-color cur_color" id ="10"><span>#D4EDFB</span></div>
+                <div style="background-color: #F6D5FB;" class="palette-color" id="square_clr1"><span>#F6D5FB</span></div>
+                <div style="background-color: #FBE3D5;" class="palette-color compl_color" id ="11"><span>#FBE3D5</span></div>
+                <div style="background-color: #DAFBD5;" class="palette-color" id="square_clr2"><span>#DAFBD5</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+   
+    
+      <!-- Copyright -->
+      <div class="row footer justify-content-center  border-top">
+        <p class="d-block mt-3">Copyright &copy; 2020</p>
+      </div>
+
+  </div> 
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

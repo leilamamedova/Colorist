@@ -1,0 +1,249 @@
+body{
+background-color: white;
+}
+
+.page-title {
+justify-content: center;
+align-items: center;
+margin-top: 5%;
+margin-bottom: 95px;
+}
+
+.title {
+font-weight: 800;
+letter-spacing: -.01em;
+font-size: 50px;
+font-family: Inter,sans-serif;
+}
+
+#colorPicker{
+position: absolute;
+margin-top: 20px;
+margin-left: 7px;
+visibility: hidden;
+}
+
+.picker-wrapper, 
+.pcr-wrapper {
+    position: relative;
+    float: left;
+}
+.picker-indicator,
+.pcr-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.picker,
+.pcr {
+    cursor: crosshair;
+    float: left;
+}
+
+.cp-default .picker {
+top: 0;
+left: 0;
+width: 350px;
+height: 250px;
+}
+.cp-default .pcr {
+    width: 30px;
+    height: 250px;
+}
+.cp-default .pcr-wrapper {
+    margin-left: 20px;
+}
+.cp-default .picker-indicator {
+    width: 10px;
+    height: 10px;
+    border: 1px solid darkblue;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    filter: alpha(opacity=50);
+    background-color: white;
+}
+.cp-default .pcr-indicator {
+    width: 38px;
+    height: 10px;
+    left: -4px;
+    opacity: .6;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    filter: alpha(opacity=60);
+    border: 4px solid lightblue;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+#color-picker-preview {
+height: 250px;
+width: 100%;
+border-radius: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: inset rgba(0,0,0,.11) 0 0 0 1px;
+background-color: #D4EDFB;
+}
+
+#color-picker-preview-hex { 
+font-weight: 500;
+text-transform: uppercase;
+opacity: .5;
+font-size: 40px;
+margin-bottom: 15px;
+}
+
+.panel {
+background: #fff;
+display: flex;
+text-align: center;
+border-radius: 14px;
+box-shadow: inset rgba(0,0,0,.11) 0 0 0 1px;
+}
+
+.panel_body {
+padding: 25px;
+width: 100%;
+}
+
+table {
+border-collapse: collapse;
+}
+
+.text {
+color: white;
+}
+
+.somerow{
+margin-top: 50px;
+}
+
+#preview{
+padding: 0;
+}
+
+#input-color-wrapper {
+position: relative;
+}
+
+.input {
+border-radius: 14px;
+height: 58px;
+font-size: 16px;
+transition: box-shadow .15s ease;
+box-shadow: inset #d8d8da 0 0 0 1px,inset #fff 0 0 0 100px;
+border: none;
+font-family: Inter,sans-serif;
+width: 100%;
+padding-left: 30px;
+position: relative;
+}
+
+.input, :focus {
+outline: 0;
+}
+
+.color-picker-input {
+height: 40px;
+width: 40px;
+right: 2%;
+top: 15%;
+cursor: pointer;
+display: block;
+border-radius: 6px;
+position: absolute;
+box-shadow: inset rgba(0,0,0,.11) 0 0 0 1px;
+}
+
+.input-color_hash-icon {
+left: 1%;
+top: 22%;
+display: block;
+color: grey;
+position: absolute;
+transition: .15s ease;
+font-size: 20px;
+}
+
+.popover {
+min-width: 440px;
+min-height: 310px;
+border-radius: 14px;
+position: relative;
+box-shadow: rgba(0,0,0,.11) 0 0 0 1px, rgba(0,0,0,.05) 0 10px 10px -5px;
+background-color: #fff;
+}
+
+.palette-name {
+font-size: 18px;
+font-weight: 600;
+color: #000;
+line-height: 1.1em;
+letter-spacing: -.01em;
+margin-bottom: 10px;
+text-align: center;
+font-family: Inter,sans-serif;
+margin-top: 30px;
+}
+
+.subtext {
+color: #7d7c83;
+line-height: 1.4em;
+font-size: 15px;
+text-align: justify;
+margin-top: 15px;
+font-family: Inter,sans-serif;
+}
+.palette-stripe {
+min-width: 100%;
+min-height: 80px;
+display: flex;
+margin-top: 20px;
+cursor: pointer;
+position: relative;
+}
+
+.palette-stripe div:first-child {
+border-radius: 8px 0 0 8px;
+box-shadow: inset rgba(0,0,0,.08) 1px 1px, inset rgba(0,0,0,.08) 0 -1px;
+width: 250px;
+}
+
+.palette-stripe div {
+box-shadow: inset rgba(0,0,0,.08) -1px 1px, inset rgba(0,0,0,.08) 0 -1px;
+width: 250px;
+}
+
+.palette-stripe div:last-child {
+border-radius: 0 8px 8px 0;
+box-shadow: inset rgba(0,0,0,.08) -1px 1px, inset rgba(0,0,0,.08) 0 -1px;
+width: 250px;
+}
+
+#harmony{
+padding-top: 10px;
+}
+
+.palette-color {
+padding-top: 30px;
+color: #000;
+font-weight: 500;
+text-transform: uppercase;
+}
+
+.footer {
+margin-top: 80px;
+}
+
+#hex_input {
+    color: #7c7c7c91;
+}
